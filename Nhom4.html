@@ -176,6 +176,13 @@ PTT — Hôm nay lúc 07:30
         result += "</table>";
         document.writeln(result);
     }
+	 function editProduct(index) {
+        let name = document.getElementById("name").value;
+        let price = document.getElementById("price").value;
+        let description = document.getElementById("description").value;
+        arrayProduct[index] = new Product(name,price,description);
+        displayProduct();
+    }
     displayProduct();
 </script>
 </body>
