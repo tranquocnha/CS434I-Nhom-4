@@ -74,6 +74,14 @@
     }
 
     displayProduct();
+    function showFormCreate() {
+        document.body.innerHTML="";
+        let result = "Name: <input id='name' ><br>"
+        result+="Price: <input id='price'><br>"
+        result+="Description: <input id='description'><br>"
+        result+="<button onclick='createProduct()'>Create</button>"
+        document.writeln(result);
+    }
 </script>
 </body>
 </html>
