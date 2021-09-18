@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
 
-﻿
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+    ﻿
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
 <body>
 <script>
     class Product {
@@ -27,12 +27,14 @@
             this.description = description;
         }
     }
+
     let arrayProduct = [];
     arrayProduct.push(new Product("Iphone", "100000000đ", "Iphone 11 pro max"));
     arrayProduct.push(new Product("Iphone", "100000000đ", "Iphone 12 pro max"));
     arrayProduct.push(new Product("Iphone", "100000000đ", "Iphone 13 pro max"));
+
     function displayProduct() {
-        document.body.innerHTML="";
+        document.body.innerHTML = "";
         let result = "<button onclick='showFormCreate()'>Create Product</button>"
         result += "<table border='1'>";
         for (let i = 0; i < arrayProduct.length; i++) {
@@ -40,20 +42,37 @@
             result += "<td>" + arrayProduct[i].name + "</td>";
             result += "<td>" + arrayProduct[i].price + "</td>";
             result += "<td>" + arrayProduct[i].description + "</td>";
-            result += "<td><button onclick='showFormEditProduct("+i+")'>Edit</button></td>";
-            result += "<td><button onclick='deleteProduct("+i+")'>Delete</button></td>";
+            result += "<td><button onclick='showFormEditProduct(" + i + ")'>Edit</button></td>";
+            result += "<td><button onclick='deleteProduct(" + i + ")'>Delete</button></td>";
             result += "</tr>";
         }
         result += "</table>";
         document.writeln(result);
     }
-	 function editProduct(index) {
+
+    function editProduct(index) {
         let name = document.getElementById("name").value;
         let price = document.getElementById("price").value;
         let description = document.getElementById("description").value;
-        arrayProduct[index] = new Product(name,price,description);
+        arrayProduct[index] = new Product(name, price, description);
         displayProduct();
     }
+
+    function createProduct() {
+        let name = document.getElementById("name").value;
+        let price = document.getElementById("price").value;
+        let description = document.getElementById("description").value;
+        arrayProduct.push(new Product(name, price, description));
+        displayProduct();
+    }
+
+    function deleteProduct(index) {
+        if (confirm("Bạn có muốn xóa đối tượng ở vị trí " + index + " hay không?")) {
+            arrayProduct.splice(index, 1);
+            displayProduct();
+        }
+    }
+
     displayProduct();
 </script>
 </body>
